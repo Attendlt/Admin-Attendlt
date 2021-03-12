@@ -1,0 +1,22 @@
+.head_navlink {
+  text-decoration: none !important;
+  color: black;
+}
+*{
+    text-align: center;
+}
+.navhead{
+    background:rgb(169, 216, 210);
+}
+.head_navlink:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.btnsu :hover {
+  color: red;
+  background-color: rgb(238, 232, 232);
+}
+/* .navhead 
+{
+    position: fixed;    top:0;
+    width:100%;
+} */

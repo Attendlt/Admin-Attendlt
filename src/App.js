@@ -1,8 +1,8 @@
 import React from "react";
-import Signin from "./Pages/Signin.js";
-
+import Header from './Pages/Header';
+import Home from './Pages/Home';
 function App() {
-  return <div><Signin/></div>;
+  return <div><Header/><Home/></div>;
 }
 
 export default App;
