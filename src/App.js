@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Admin ,Resource,EditGuesser} from "react-admin";
-import { UserList,UserEdit } from './components/users';
-import {UserCreate} from './components/admin';
+import { Admin, Resource, EditGuesser } from "react-admin";
+import { UserList, UserEdit } from "./components/users";
+import { UserCreate } from "./components/admin";
 import jsonServerProvider from "ra-data-json-server";
 import authProvider from "./components/authProvider";
 // const express = require("express");
@@ -20,14 +20,18 @@ import authProvider from "./components/authProvider";
 // app.listen(PORT, () => {
 //   console.log(`listeninig on http://localhost:${PORT}`);
 // });
-const dataProvider =
-  jsonServerProvider("https://jsonplaceholder.typicode.com");
+const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 
 class App extends Component {
   render() {
     return (
-        <Admin dataProvider={dataProvider} authProvider={authProvider}>
-        <Resource name="users" list={UserList} edit={UserEdit}  create={UserCreate}/>
+      <Admin dataProvider={dataProvider} authProvider={authProvider}>
+        <Resource
+          name="users"
+          list={UserList}
+          edit={UserEdit}
+          create={UserCreate}
+        />
       </Admin>
     );
   }
