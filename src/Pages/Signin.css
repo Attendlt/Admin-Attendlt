@@ -1,0 +1,59 @@
+*{    background-repeat: no-repeat;
+    background-size:cover;}
+.poster-signin{
+    background-image:url("https://images.unsplash.com/photo-1588421357574-87938a86fa28?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Ymx1ZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+
+    
+}
+
+.container {
+    max-width: 950px;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    /* background-color: #ebbdc1; */
+}
+
+#name {
+    font-size: 0.8rem;
+    font-weight: bold
+}
+
+#position {
+    font-size: 0.7rem
+}
+
+
+.about{
+
+    height: 325px;
+    /*margin: auto;*/
+    text-align: center;
+  
+    padding: 40px;
+    width:fit-content;
+   /* background-image:linear-gradient( #dae7f0,#9ec3d4);*/
+}
+
+h2{
+    text-align: center;
+    padding: 20px;
+}
+
+
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .cols {
+      width: 100%;
+      display: flexbox;
+      margin-bottom: 20px;
+    }
+  }
+
+.form{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" 
+      effect */
+      padding: 16px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { auth } from "../firebase";
 import { Form, Button } from "react-bootstrap";
-
+import './Signin.css';
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,12 +22,12 @@ function Signin() {
 
   return (
     <div className="poster-signin">
-      <div className="container mt-4" style={{ width: "70%", padding: "10%" }}>
+      <div className="container mt-4" style={{ width: "40%", padding: "10%" ,alignContent:'center',alignItems:'center'}}>
           <div className="form">
         <h2
           style={{ color: "grey", textAlign: "center", textDecoration: "bold" }}
         >
-          Welcome to The Attendlt!
+          Welcome to The Attendlt!Admin-Panel
         </h2>
         <h3
           style={{
