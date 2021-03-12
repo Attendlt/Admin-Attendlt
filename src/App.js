@@ -25,6 +25,7 @@ const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 class App extends Component {
   render() {
     return (
+        <div>
       <Admin dataProvider={dataProvider} authProvider={authProvider}>
         <Resource
           name="users"
@@ -33,6 +34,7 @@ class App extends Component {
           create={UserCreate}
         />
       </Admin>
+      </div>
     );
   }
 }
