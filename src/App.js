@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Admin, Resource, EditGuesser } from "react-admin";
-import { UserList, UserEdit } from "./components/users";
-import { UserCreate } from "./components/admin";
+import { UserList, UserEdit } from "./users";
+import { UserCreate } from "./admin";
 import jsonServerProvider from "ra-data-json-server";
 import authProvider from "./components/authProvider";
 // const express = require("express");
