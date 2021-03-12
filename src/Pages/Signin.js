@@ -4,18 +4,18 @@ import './Signin.css';
 import E from './Email';
 function Signin() {
   return (
-    <div className="poster-signin">
-      <div className="container mt-4" style={{ width: "40%", padding: "10%" ,alignContent:'center',alignItems:'center'}}>
-          <div className="form">
+    <div className="poster-signin" style={{backgroundSize:"cover"}}>
+      <div className="container mt-4" style={{ borderRadius:"30px", height:"60%",margin:"auto", width:"50%", backgroundColor:"white",boxSizing:"border-box", padding:"2em 0 3em 0"}}>
+          
         <h2
-          style={{ color: "grey", textAlign: "center", textDecoration: "bold" }}
+          style={{ padding:"1em, 0 1em 0",color: "grey",textDecoration: "bold"}}
         >
-          Welcome to The Attendlt!Admin-Panel
+          <span>Welcome to The Attendlt! Admin-Panel</span>
         </h2>
         <h3
           style={{
             color: "#ff3300",
-            textAlign: "center",
+             padding:"1em, 0 1em 0",
             textDecoration: "bold",
           }}
         >
@@ -24,11 +24,11 @@ function Signin() {
           <E/>
           <Button
             type="submit"
-            style={{ width: "45%", background: "#ff3300" }}
+            style={{ width: "45%",height:"3em",borderRadius:"60px",  padding:"2em, 0 2em 0",background: "#ff3300" }}
           >
             Login
           </Button>
-      </div>
+     
       </div>
     </div>
   );
