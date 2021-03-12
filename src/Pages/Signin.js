@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import { auth } from "../firebase";
 import { Form, Button } from "react-bootstrap";
 import './Signin.css';
+
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,14 +9,7 @@ function Signin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (email && password) {
-    //   await auth
-    //     .signInWithEmailAndPassword(email, password)
-    //     .then(async (authUser) => {
-    //       if (authUser) {
             console.log("Login Successful!!");
-    //       }
-    //     })
-    //     .catch((err) => console.log(err));
     }
   };
 
