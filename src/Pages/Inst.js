@@ -5,12 +5,14 @@ import { Button } from "@material-ui/core";
 import './Signin.css';
 
 function SEmail() {
+    const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [InsName, setInsName] = useState("");
   const [InsId, setInsId] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (InsName && InsId) {
+    if (email&&password&&InsName && InsId) {
             console.log("Login Successful!!");
     }
   };
@@ -18,6 +20,26 @@ function SEmail() {
   return (<div className="Inst">
           <div className="form">
         <Form onSubmit={handleSubmit}>
+            <Form.Group>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
+            <span>         </span>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
           <Form.Group>
             <Form.Label>Institute Name</Form.Label>
             <Form.Control
@@ -38,10 +60,12 @@ function SEmail() {
               onChange={(e) => setInsId(e.target.value)}
             />
           </Form.Group>
+          &nbsp;
+          &nbsp;
                     <Button
             type="submit" variant="contained" color="secondary"
           >
-            Join
+           Join
           </Button>
         </Form>
       </div>
