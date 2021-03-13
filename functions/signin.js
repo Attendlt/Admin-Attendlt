@@ -1,7 +1,7 @@
 const admin = require("firebase-admin");
 const serviceAccount = require("../keys/serviceAccountKey.json");
-const uuid = require("uuid");
 const databaseURL = require("../constants/databaseURL");
+// const uuid = require("uuid");
 
 if (!admin.apps.length) {
   admin.initializeApp({
@@ -18,23 +18,15 @@ exports.handler = async (event, context, callback) => {
   // patli gali sa nikal
   const { email } = JSON.parse(event.body);
 
-  const createCustomToken = async (isAdmin) => {
-    let loginType;
-    if (isAdmin) {
-      loginType = "admin";
-    } else {
-      loginType = "institute";
-    }
-
+  const createCustomToken = async (uid) => {
     await admin
       .auth()
-      .createCustomToken(uuid.v4())
+      .createCustomToken(uid)
       .then((customToken) => {
         // Send token back to client
         return callback(null, {
           statusCode: 200,
           body: JSON.stringify({
-            loginType: loginType,
             token: customToken,
           }),
         });
@@ -54,22 +46,16 @@ exports.handler = async (event, context, callback) => {
     .getUserByEmail(email)
     .then(async (user) => {
       if (user) {
-        const customClaims = user.customClaims;
+        const uid = user.uid;
 
-        if (customClaims) {
-          if (customClaims.admin) {
-            createCustomToken(true);
-          } else {
-            createCustomToken(false);
-          }
-        } else {
-          return callback(null, {
-            statusCode: 400,
-            body: JSON.stringify({
-              error: "User doesn't exists",
-            }),
-          });
-        }
+        createCustomToken(uid);
+      } else {
+        return callback(null, {
+          statusCode: 400,
+          body: JSON.stringify({
+            error: "User doesn't exists",
+          }),
+        });
       }
     })
     .catch((err) => {

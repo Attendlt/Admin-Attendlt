@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "@material-ui/core";
+import axios from "axios";
+import { auth } from "../firebase";
 
 import "./Signin.css";
 
@@ -12,7 +14,9 @@ function SEmail() {
     e.preventDefault();
     if (email && password) {
       await axios
-        .get("/.netlify/functions/signin")
+        .post("/.netlify/functions/signin", {
+          email: email,
+        })
         .then(async (res) => {
           const token = res?.data?.token;
 
@@ -21,11 +25,9 @@ function SEmail() {
               .signInWithCustomToken(token)
               .then(async (userCredential) => {
                 const user = userCredential.user;
-                if (!user.email) {
-                  await user
-                    .updateEmail(email)
-                    .then(() => console.log("Ho gya ab, bhad ma ja ab..."))
-                    .catch((err) => console.log(err));
+
+                if (user) {
+                  console.log("Login Successful!!");
                 }
               })
               .catch((err) => console.log(err.code, err.message));

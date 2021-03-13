@@ -20,6 +20,7 @@ exports.handler = async (event, context, callback) => {
     .auth()
     .createUser({
       email: email,
+      emailVerified: true,
       password: password,
       phoneNumber: phoneNumber,
       disabled: false,
