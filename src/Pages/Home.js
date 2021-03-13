@@ -4,6 +4,16 @@ import { useStateValue } from "../StateProvider";
 import { useHistory } from "react-router";
 import { auth, db } from "../firebase";
 
+import { CSVLink, CSVDownload } from "react-csv";
+ 
+const csvData = [
+  ["firstname", "lastname", "email"],
+  ["Ahmed", "Tomi", "ah@smthing.co.com"],
+  ["Raed", "Labes", "rl@smthing.co.com"],
+  ["Yezzi", "Min l3b", "ymin@cocococo.com"]
+];
+
+const mockData=[null];
 function Home() {
   const [{ admin }] = useStateValue();
   const history = useHistory();
@@ -20,7 +30,7 @@ function Home() {
           .then((snapshots) => {
             console.log(snapshots.size);
             snapshots.forEach((snapshot) => {
-              console.log(snapshot.data(), snapshot.id);
+                console.log(snapshot.data(), snapshot.id);
             });
           });
       }
@@ -56,6 +66,20 @@ function Home() {
       >
         Signout
       </Button>
+
+{/* extra json to csv */}
+&nbsp;
+&nbsp;
+&nbsp;
+<CSVLink data={csvData}>
+<Button
+        variant="contained"
+        color="default"
+      >
+    Download DATA
+</Button>
+</CSVLink>;
+
     </div>
   );
 }
