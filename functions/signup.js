@@ -5,16 +5,14 @@ const databaseURL = require("../constants/databaseURL");
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: databaseURL,
+    // databaseURL: databaseURL,
   });
 } else {
   admin.app();
 }
 
 exports.handler = async (event, context, callback) => {
-  const { email, password, phoneNumber } = JSON.parse(event.body);
-
-  const setCustomUserClaims = async (uid, email, phoneNumber) => {};
+  const { email, password } = JSON.parse(event.body);
 
   await admin
     .auth()
@@ -22,13 +20,12 @@ exports.handler = async (event, context, callback) => {
       email: email,
       emailVerified: true,
       password: password,
-      phoneNumber: phoneNumber,
+
       disabled: false,
     })
     .then(async (userRecord) => {
       const uid = userRecord.uid;
       const email = userRecord.email;
-      const phoneNumber = userRecord.phoneNumber;
 
       await admin
         .auth()
@@ -41,7 +38,6 @@ exports.handler = async (event, context, callback) => {
             body: JSON.stringify({
               uid: uid,
               email: email,
-              phoneNumber: phoneNumber,
               message: `Success! ${email} has been registered as institute`,
             }),
           });

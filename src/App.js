@@ -11,6 +11,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Loading from "./Pages/Loading";
+import Institute from "./Pages/Inst";
 
 function App() {
   // till we will not confirm ki wo admin ha ki nahi hum usko loading ki karate rhega...
@@ -33,12 +34,6 @@ function App() {
               });
               setLoading(false);
             });
-          } else {
-            // user is logged out
-            // dispatch({
-            //   type: "SET_UID",
-            //   uid: null,
-            // });
           }
         });
       } catch (e) {
@@ -56,7 +51,47 @@ function App() {
       <Router>
         <Header />
 
-        <Switch>{uid ? loading ? <Loading /> : <Home /> : <Signin />}</Switch>
+        <Switch>
+          {uid ? (
+            loading ? (
+              <>
+                <Route exact path="/">
+                  <Loading />
+                </Route>
+
+                <Redirect to="/">
+                  <Loading />
+                </Redirect>
+              </>
+            ) : (
+              <>
+                {admin && (
+                  <Route exact path="/create-new-institute">
+                    <Institute />
+                  </Route>
+                )}
+
+                <Route exact path="/">
+                  <Home />
+                </Route>
+
+                <Redirect to="/">
+                  <Home />
+                </Redirect>
+              </>
+            )
+          ) : (
+            <>
+              <Route exact path="/">
+                <Signin />
+              </Route>
+
+              <Redirect to="/">
+                <Signin />
+              </Redirect>
+            </>
+          )}
+        </Switch>
       </Router>
     </div>
   );

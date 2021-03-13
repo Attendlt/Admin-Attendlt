@@ -1,19 +1,38 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "@material-ui/core";
-
+import axios from "axios";
 import "./Signin.css";
+import { db } from "../firebase";
 
-function SEmail() {
+function Institute() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [InsPhone, setInsPhone] = useState("");
   const [InsId, setInsId] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email && password && InsPhone && InsId) {
-      console.log("Login Successful!!");
+    if (email && password && InsId) {
+      await axios
+        .post("/.netlify/functions/signup", {
+          email: email,
+          password: password,
+        })
+        .then(async (res) => {
+          const { uid, email, message } = res.data;
+          console.log(uid, email, message);
+          await db
+            .collection("institutes")
+            .doc(uid)
+            .set({
+              instituteId: InsId,
+            })
+            .then(async (res) => {
+              // tell the admin that the institute is added successfully
+              console.log(res);
+            })
+            .catch((err) => console.log(err));
+        });
     }
   };
 
@@ -41,15 +60,6 @@ function SEmail() {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Institute Phone</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter Institute Name"
-              value={InsPhone}
-              onChange={(e) => setInsPhone(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group>
             <Form.Label>Institute ID</Form.Label>
             <span> </span>
             <Form.Control
@@ -69,4 +79,4 @@ function SEmail() {
   );
 }
 
-export default SEmail;
+export default Institute;
