@@ -1,24 +1,14 @@
-import React, { useEffect } from "react";
-import { auth } from "./firebase.js";
-import Signin from "./Pages/Signin.js";
+import React from "react";
+import Header from "./Pages/Header";
+import Home from "./Pages/Home";
+import Signin from "./Pages/Signin";
 
 function App() {
-  useEffect(() => {
-    // const startupFunc = async () => {
-    //   try {
-    //     auth.onAuthStateChanged(async (authUser) => {
-    //       if (authUser) {
-    //       }
-    //     });
-    //   }
-    // };
-
-    return () => {};
-  }, []);
-
   return (
     <div>
+      <Header />
       <Signin />
+      <Home />
     </div>
   );
 }

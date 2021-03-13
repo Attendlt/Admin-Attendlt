@@ -1,16 +1,28 @@
 *{
     text-align: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size:cover;
+    /* margin:0.5em; */
+}
+.Inst
+{
+    width:40%;
+}
+.email{
+    width:40%
 }
 .poster-signin{
-    background-image:url("https://images.unsplash.com/photo-1588421357574-87938a86fa28?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Ymx1ZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
-
-    
+    background-image:url("https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sb3IlMjBncmFkaWVudHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+   
+    align-items: center;
+    width: 100%;
+    padding:10em 0 10em 0;
 }
 
+
+
 #position {
-    font-size: 0.7rem
+    font-size: 1rem;
 }
 
 h2{
@@ -31,9 +43,10 @@ h2{
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" 
       effect */
       padding: 16px;
-    text-align: center;
-    align-self: center;
-    background-color: white;
-    border-radius: 10px;
-    width: fit-content;
+    
+    background-color: rgb(250, 250, 250);
+    border-radius: 20px;
+    width: 75%;
+    margin:auto;
+    height:30%
 }
