@@ -50,8 +50,8 @@ function App() {
   return (
     <div>
       <Router>
-        <Header />
         <Switch>
+          <Header />
           {uid ? (
             loading ? (
               <>
