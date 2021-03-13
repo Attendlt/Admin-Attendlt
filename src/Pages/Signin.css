@@ -1,11 +1,18 @@
 *{
     text-align: center;
     /* background-repeat: no-repeat; */
-    background-size:full;
-    margin:0.5em;
+    background-size:cover;
+    /* margin:0.5em; */
+}
+.Inst
+{
+    width:40%;
+}
+.email{
+    width:40%
 }
 .poster-signin{
-    background-image:url("https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-business-technology-digital-high-tech-world-background-backgroundtechnology-backgroundhigh-tech-backgroundworld-image_79012.jpg");
+    background-image:url("https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sb3IlMjBncmFkaWVudHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
    
     align-items: center;
     width: 100%;

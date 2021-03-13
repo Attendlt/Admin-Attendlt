@@ -5,43 +5,43 @@ import { Button } from "@material-ui/core";
 import './Signin.css';
 
 function SEmail() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [InsName, setInsName] = useState("");
+  const [InsId, setInsId] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email && password) {
+    if (InsName && InsId) {
             console.log("Login Successful!!");
     }
   };
 
-  return (<div className="email">
+  return (<div className="Inst">
           <div className="form">
         <Form onSubmit={handleSubmit}>
           <Form.Group>
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Institute Name</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter Institute Name"
+              value={InsName}
+              onChange={(e) => setInsName(e.target.value)}
             />
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <span>         </span>
+            <Form.Label>Institute ID</Form.Label>
+            <span>          </span>
             <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type="text"
+              placeholder="Enter Institute Id here"
+              value={InsId}
+              onChange={(e) => setInsId(e.target.value)}
             />
           </Form.Group>
                     <Button
-            type="submit"
-            variant="contained" color="secondary"          >
-            Login
+            type="submit" variant="contained" color="secondary"
+          >
+            Join
           </Button>
         </Form>
       </div>
