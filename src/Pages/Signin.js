@@ -1,8 +1,6 @@
 import React from "react";
 // import './Signin.css';
-import E from "./Email";
-import I from "./Inst";
-
+import Email from "./Email";
 function Signin() {
   return (
     <div className="poster-signin" style={{ backgroundSize: "cover" }}>
@@ -16,9 +14,8 @@ function Signin() {
           boxSizing: "border-box",
         }}
       >
-        <E />
+        <Email />
         &nbsp;
-        <I />
       </div>
     </div>
   );
