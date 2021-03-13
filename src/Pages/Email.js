@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+
 import './Signin.css';
 
 function SEmail() {
@@ -15,7 +17,7 @@ function SEmail() {
 
   return (<div>
           <div className="form">
-        <Form onSubmit={handleSubmit} className="form">
+        <Form onSubmit={handleSubmit}>
           <Form.Group>
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -35,6 +37,12 @@ function SEmail() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
+                    <Button
+            type="submit"
+            style={{ width: "45%",height:"3em",borderRadius:"60px",  padding:"2em, 0 2em 0",background: "#ff3300" }}
+          >
+            Login
+          </Button>
         </Form>
       </div>
       </div>

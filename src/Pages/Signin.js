@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import './Signin.css';
 import E from './Email';
 function Signin() {
@@ -22,12 +21,6 @@ function Signin() {
           To Login In Your Account, Fill the following details!
         </h3>
           <E/>
-          <Button
-            type="submit"
-            style={{ width: "45%",height:"3em",borderRadius:"60px",  padding:"2em, 0 2em 0",background: "#ff3300" }}
-          >
-            Login
-          </Button>
      
       </div>
     </div>
