@@ -7,12 +7,12 @@ import './Signin.css';
 function SEmail() {
     const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [InsName, setInsName] = useState("");
+  const [InsPhone, setInsPhone] = useState("");
   const [InsId, setInsId] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email&&password&&InsName && InsId) {
+    if (email&&password&&InsPhone && InsId) {
             console.log("Login Successful!!");
     }
   };
@@ -41,12 +41,12 @@ function SEmail() {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Institute Name</Form.Label>
+            <Form.Label>Institute Phone</Form.Label>
             <Form.Control
               type="email"
               placeholder="Enter Institute Name"
-              value={InsName}
-              onChange={(e) => setInsName(e.target.value)}
+              value={InsPhone}
+              onChange={(e) => setInsPhone(e.target.value)}
             />
           </Form.Group>
 
