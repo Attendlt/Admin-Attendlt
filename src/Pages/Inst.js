@@ -73,18 +73,18 @@ function Institute() {
   };
 
   return (
-    <div>
+    <div className='instdiv'>
       <Collapse in={showAlert}>
         <Alert
           action={
-            <IconButton
+              <IconButton
               aria-label="close"
               color="inherit"
               size="small"
               onClick={() => {
-                setShowAlert(false);
-              }}
-            >
+                  setShowAlert(false);
+                }}
+                >
               <CloseIcon fontSize="inherit" />
             </IconButton>
           }
@@ -97,6 +97,7 @@ function Institute() {
       </Collapse>
 
       <div className="Inst">
+    <h3 style={{color:'white'}}>Add Institute Here</h3>
         <div className="form">
           <Form onSubmit={handleSubmit}>
             <Form.Group>

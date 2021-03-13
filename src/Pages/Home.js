@@ -3,13 +3,14 @@ import { Button } from "@material-ui/core";
 import { useStateValue } from "../StateProvider";
 import { useHistory } from "react-router";
 import { auth, db } from "../firebase";
+import { DataGrid } from "@material-ui/data-grid";
 
 function Home() {
-  const [{ admin }] = useStateValue();
+  const [{ admin, uid }] = useStateValue();
   const history = useHistory();
 
-  const [institutesName, setInstitutesName] = useState([]);
-  const [institutesEmail, setInstitutesEmail] = useState([]);
+  // const [institutesName, setInstitutesName] = useState([]);
+  // const [institutesEmail, setInstitutesEmail] = useState([]);
   const [institutes, setInstitutes] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -20,16 +21,16 @@ function Home() {
           .collection("institutes")
           .get()
           .then((snapshots) => {
-            console.log(snapshots.size);
-            snapshots.forEach((snapshot) => {
-              const { instituteId, email } = snapshot.data();
-              console.log(instituteId, email);
-              setInstitutesName((oldNames) => [...oldNames, instituteId]);
-              setInstitutesEmail((oldEmails) => [...oldEmails, email]);
-              setInstitutes([...institutes, snapshot.data()]);
-              console.log(institutes);
-            });
+            setInstitutes(
+              snapshots.docs.map((doc) => ({
+                id: doc.id,
+                email: doc.data().email,
+                instituteId: doc.data().instituteId,
+              }))
+            );
+            console.log(institutes);
           });
+      } else {
       }
     };
 
@@ -39,7 +40,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div style={{ marginTop: 80 }}>
       {admin && (
         <span className="btn">
           <Button
@@ -49,6 +50,7 @@ function Home() {
           >
             +Create
           </Button>
+          &nbsp; &nbsp;
         </span>
       )}
 
@@ -61,6 +63,13 @@ function Home() {
       >
         Signout
       </Button>
+
+      {/* <DataGrid
+        pageSize={5}
+        rowsPerPageOptions={[5, 10, 20]}
+        pagination
+        {...institutes}
+      /> */}
     </div>
   );
 }
