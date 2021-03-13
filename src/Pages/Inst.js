@@ -4,15 +4,33 @@ import { Button } from "@material-ui/core";
 import axios from "axios";
 import "./Signin.css";
 import { db } from "../firebase";
+import { makeStyles } from "@material-ui/core/styles";
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: "#fff",
+  },
+}));
 
 function Institute() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [InsId, setInsId] = useState("");
 
+  const [showAlert, setShowAlert] = useState(true);
+
+  const [showBackDrop, setShowBackDrop] = useState(false);
+
+  const classes = useStyles();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (email && password && InsId) {
+      setShowBackDrop(true);
+
       await axios
         .post("/.netlify/functions/signup", {
           email: email,
@@ -20,19 +38,26 @@ function Institute() {
         })
         .then(async (res) => {
           const { uid, email, message } = res.data;
-          console.log(uid, email, message);
+          // console.log(uid, email, message);
           await db
             .collection("institutes")
             .doc(uid)
             .set({
               instituteId: InsId,
+              email: email,
             })
-            .then(async (res) => {
+            .then(async () => {
               // tell the admin that the institute is added successfully
-              console.log(res);
+              console.log("User added successfully");
+              setEmail("");
+              setInsId("");
+              setPassword("");
             })
             .catch((err) => console.log(err));
-        });
+        })
+        .catch((err) => console.log(err));
+
+      setShowBackDrop(false);
     }
   };
 
@@ -75,6 +100,10 @@ function Institute() {
           </Button>
         </Form>
       </div>
+
+      <Backdrop className={classes.backdrop} open={showBackDrop}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 }

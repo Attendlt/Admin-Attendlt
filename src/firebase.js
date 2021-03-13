@@ -1,14 +1,13 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDHDrvaJfxauO6dK6F9YFzgyRJkBelISUU",
-  authDomain: "forum-8f2e6.firebaseapp.com",
-  databaseURL: "https://forum-8f2e6.firebaseio.com",
-  projectId: "forum-8f2e6",
-  storageBucket: "forum-8f2e6.appspot.com",
-  messagingSenderId: "328481382959",
-  appId: "1:328481382959:web:bf5a9d1b5cb4e260439cda",
-  measurementId: "G-91CCYWEDRH",
+  apiKey: "AIzaSyAiFWmNhppYj-8n7Tn6tuGC4H9uQ40VCLg",
+  authDomain: "attendlt-official.firebaseapp.com",
+  projectId: "attendlt-official",
+  storageBucket: "attendlt-official.appspot.com",
+  messagingSenderId: "12072668754",
+  appId: "1:12072668754:web:4b7b339ee6e43b208d198b",
+  measurementId: "G-GPY6K4H2N4",
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

@@ -2,19 +2,31 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@material-ui/core";
 import { useStateValue } from "../StateProvider";
 import { useHistory } from "react-router";
-import { auth } from "../firebase";
-import axios from "axios";
+import { auth, db } from "../firebase";
 
 function Home() {
   const [{ admin }] = useStateValue();
   const history = useHistory();
 
-  const [data, setData] = useState([]);
+  const [institutes, setInstitutes] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const routeAccess = admin ? "getInstitutes" : "getInstituteData";
+    const fetchAdminData = async () => {
+      if (admin) {
+        await db
+          .collection("institutes")
+          .get()
+          .then((snapshots) => {
+            console.log(snapshots.size);
+            snapshots.forEach((snapshot) => {
+              console.log(snapshot.data(), snapshot.id);
+            });
+          });
+      }
+    };
 
-    // axios.post(`/.netlify/functions/${routeAccess}`);
+    fetchAdminData();
 
     return () => {};
   }, []);

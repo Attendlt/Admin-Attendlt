@@ -5,7 +5,7 @@ const databaseURL = require("../constants/databaseURL");
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    // databaseURL: databaseURL,
+    databaseURL: databaseURL,
   });
 } else {
   admin.app();

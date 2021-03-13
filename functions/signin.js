@@ -6,7 +6,7 @@ const databaseURL = require("../constants/databaseURL");
 if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    // databaseURL: databaseURL,
+    databaseURL: databaseURL,
   });
 } else {
   admin.app();
@@ -47,7 +47,6 @@ exports.handler = async (event, context, callback) => {
     .then(async (user) => {
       if (user) {
         const uid = user.uid;
-
         createCustomToken(uid);
       } else {
         return callback(null, {
@@ -59,7 +58,7 @@ exports.handler = async (event, context, callback) => {
       }
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       return callback(null, {
         statusCode: 400,
         body: JSON.stringify({

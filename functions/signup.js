@@ -4,8 +4,8 @@ const databaseURL = require("../constants/databaseURL");
 
 if (!admin.apps.length) {
   admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    // databaseURL: databaseURL,
+    ccredential: admin.credential.cert(serviceAccount),
+    databaseURL: databaseURL,
   });
 } else {
   admin.app();
@@ -20,7 +20,6 @@ exports.handler = async (event, context, callback) => {
       email: email,
       emailVerified: true,
       password: password,
-
       disabled: false,
     })
     .then(async (userRecord) => {
