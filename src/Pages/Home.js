@@ -8,6 +8,8 @@ function Home() {
   const [{ admin }] = useStateValue();
   const history = useHistory();
 
+  const [institutesName, setInstitutesName] = useState([]);
+  const [institutesEmail, setInstitutesEmail] = useState([]);
   const [institutes, setInstitutes] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -20,7 +22,12 @@ function Home() {
           .then((snapshots) => {
             console.log(snapshots.size);
             snapshots.forEach((snapshot) => {
-              console.log(snapshot.data(), snapshot.id);
+              const { instituteId, email } = snapshot.data();
+              console.log(instituteId, email);
+              setInstitutesName((oldNames) => [...oldNames, instituteId]);
+              setInstitutesEmail((oldEmails) => [...oldEmails, email]);
+              setInstitutes([...institutes, snapshot.data()]);
+              console.log(institutes);
             });
           });
       }
