@@ -32,7 +32,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div style={{marginTop:80}}>
       {admin && (
         <span className="btn">
           <Button
@@ -42,6 +42,8 @@ function Home() {
           >
             +Create
           </Button>
+          &nbsp;
+          &nbsp;
         </span>
       )}
 
