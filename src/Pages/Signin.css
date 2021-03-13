@@ -9,6 +9,10 @@
   height: 50%;
 }
 .email {
+  padding: 8%;
+  margin: auto;
+  align-self: center;
+  align-content: center;
   width: 40%;
   height: 50%;
 }

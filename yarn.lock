@@ -1776,6 +1776,7 @@
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
     react-transition-group "^4.4.0"
+<<<<<<< HEAD
 
 "@material-ui/lab@^4.0.0-alpha.57":
   version "4.0.0-alpha.57"
@@ -1787,6 +1788,8 @@
     clsx "^1.0.4"
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
+=======
+>>>>>>> 89cbb3af75266c42cb25df75e9ee1cde2b519bcd
 
 "@material-ui/styles@^4.11.3":
   version "4.11.3"

@@ -4,6 +4,7 @@ import Header from "./Pages/Header";
 import Home from "./Pages/Home";
 import Signin from "./Pages/Signin";
 import { useStateValue } from "./StateProvider";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -50,7 +51,6 @@ function App() {
     <div>
       <Router>
         <Header />
-
         <Switch>
           {uid ? (
             loading ? (
