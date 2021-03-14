@@ -35,6 +35,11 @@ function App() {
               });
               setLoading(false);
             });
+          } else {
+            dispatch({
+              type: "SET_USER",
+              uid: null,
+            });
           }
         });
       } catch (e) {

@@ -2,6 +2,8 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import React from "react";
 import "./header.css";
 import { Button } from "@material-ui/core";
+import { auth } from "../firebase";
+import { useStateValue } from "../StateProvider";
 let tagline = (
   <span style={{ paddingRight: "65%" }}>
     Attendlt : Virtualizing the future! ~Admin-Panel
@@ -9,18 +11,25 @@ let tagline = (
 );
 
 export default function Header() {
+  const [{ uid }] = useStateValue();
+
   const displayDesktop = () => {
     return (
       <>
         <Toolbar>
           {tagline}
-          <Button
-            variant="contained"
-            color="primary"
-            style={{ marginRight: 0 }}
-          >
-            Profile
-          </Button>
+
+          {uid && (
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                auth.signOut();
+              }}
+            >
+              Signout
+            </Button>
+          )}
         </Toolbar>
       </>
     );
